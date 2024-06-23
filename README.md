@@ -1,6 +1,6 @@
 
 # Link to npm registry and other endpoints such as batch retrieval of multiple npm packages:
-`https://github.com/npm/registry/tree/main/docs`
+[https://github.com/npm/registry/tree/main/docs](https://github.com/npm/registry/tree/)
 
 # Api endpoints used in the project:
 
