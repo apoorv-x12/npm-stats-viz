@@ -1,4 +1,5 @@
 import Areachart from "./components/AreaChart"
+
 function App() {
 
   return (

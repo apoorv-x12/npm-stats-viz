@@ -8,6 +8,10 @@
 | **Total Downloads for a Specific Day** | `https://api.npmjs.org/downloads/point/:date/:package` | Retrieves the total downloads for a package on a specific day. | `:date` - The specific date in `YYYY-MM-DD` format.<br>`:package` - The name of the npm package. | [Example](https://api.npmjs.org/downloads/point/2024-06-23/string-utils-basic) |
 | **Total Downloads for a Specific Range** | `https://api.npmjs.org/downloads/range/:startDate:endDate/:package` | Retrieves the total downloads for a package over a specific date range. | `:startDate` - The start date in `YYYY-MM-DD` format.<br>`:endDate` - The end date in `YYYY-MM-DD` format.<br>`:package` - The name of the npm package. | [Example](https://api.npmjs.org/downloads/range/2023-01-01:2024-06-23/string-utils-basic) |
 | **Total Downloads for a Range with Aggregate Statistics** | `https://api.npmjs.org/downloads/range/:period/:package` | Retrieves the total downloads for a package over a specified period with daily breakdowns. | `:period` - The period range (`last-day`, `last-week`, `last-month`, or custom range like `YYYY-MM-DD:YYYY-MM-DD`).<br>`:package` - The name of the npm package. | [Example](https://api.npmjs.org/downloads/range/last-month/string-utils-basic) |
+| **Package Metadata** | `https://registry.npmjs.org/:package` | Retrieves metadata for a specified package. | `:package` - The name of the npm package. | [Example](https://registry.npmjs.org/string-utils-basic) |
+
+You can use these endpoints to gather download statistics and metadata for npm packages.
+
 
 ## Example Responses
 
