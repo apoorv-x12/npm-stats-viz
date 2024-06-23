@@ -1,4 +1,8 @@
-# Api endpoints used in the project
+
+# Link to npm registry and other endpoints such as batch retrieval of multiple npm packages:
+`https://github.com/npm/registry/tree/main/docs`
+
+# Api endpoints used in the project:
 
 ## npm Downloads API Endpoints
 
