@@ -1,10 +1,16 @@
-import Areachart from "./components/AreaChart"
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
 
   return (
     <>
-     <Areachart/>
+      <Header/>
+      <main>
+        <Outlet/>
+      </main>
+      <Footer/>
     </>
   )
 }

@@ -2,7 +2,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 
 const Areachart = () => {
 
-    const data = [
+  const dataDummy = [
   {
     "name": "Page A",
     "uv": 4000,
@@ -26,29 +26,12 @@ const Areachart = () => {
     "uv": 2780,
     "pv": 3908,
     "amt": 2000
-  },
-  {
-    "name": "Page E",
-    "uv": 1890,
-    "pv": 4800,
-    "amt": 2181
-  },
-  {
-    "name": "Page F",
-    "uv": 2390,
-    "pv": 3800,
-    "amt": 2500
-  },
-  {
-    "name": "Page G",
-    "uv": 3490,
-    "pv": 4300,
-    "amt": 2100
-  }
+  }, 
 ]
+
   return (
    <>
-   <AreaChart width={730} height={250} data={data}
+   <AreaChart width={730} height={250} data={dataDummy}
     margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
         <defs>
         <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
