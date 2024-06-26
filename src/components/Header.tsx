@@ -26,13 +26,13 @@ const Header = () => {
                   compare
                 </Link>
             </div>
-            <div>
+            <div >
                 <Link to={'/genAi'}>
                   genAi
                 </Link>
             </div>
         </div>
-        <a rel='noopener' target='_blank' href="http://www.npmjs.com">
+        <a className='animate-bounce' rel='noopener' target='_blank' href="http://www.npmjs.com">
         <Avatar>
             <AvatarImage src={npm} />
             <AvatarFallback>NPM</AvatarFallback>
