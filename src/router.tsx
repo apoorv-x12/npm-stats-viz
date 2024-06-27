@@ -11,7 +11,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-    errorElement:  <p>Error fetching data....Please try again later.</p>,
     children: [
       {
         path: "/home",

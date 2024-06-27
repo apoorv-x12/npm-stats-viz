@@ -8,11 +8,11 @@ const Footer = () => {
              Made by- Apoorv Shrivastava
            </div>
            <div>
-             Tech Stack- React.js, TypeScript, Recharts.js, npmjs registry API, react-query, llm, react-router-dom 
+             Tech Stack- React.js, TypeScript, Recharts.js, npmjs registry API, react-query, shadcn-ui, zod, llm, react-router-dom 
            </div>
       
-        <div>
-            <Button asChild>
+        <div >
+            <Button asChild className="bg-gradient-to-r from-blue-400 via-green-500 to-pink-600 rounded-lg shadow-md">
                 <a rel='noopener' target='_blank' href="https://github.com/apoorv-x12/npm-stats-viz">
                    Github
                 </a>

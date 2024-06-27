@@ -7,7 +7,7 @@ type Props = {
 }
 const TotalCard = (props: Props) => {
   return (
-    <div className="flex flex-col p-2 justify-center items-center border-2 border-pink-600 rounded-lg">
+    <div className="flex flex-col p-2 justify-center items-center border-2 bg-[#020817] text-yellow-100 rounded-lg">
         <h1 className='mb-2 font-bold'>Package Stats for last 18 months</h1>
         <div className="flex gap-8 justify-center items-center m-4 p-2">
             <div className="flex flex-col justify-center items-center gap-1">
