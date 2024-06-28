@@ -47,7 +47,9 @@ const PackageInfo = (props:Props) => {
           name="packagename"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Package name</FormLabel>
+              <FormLabel className="text-transparent text-2xl bg-clip-text  bg-gradient-to-r from-pink-500 via-yellow-500 to-red-500 ">
+                Package name
+              </FormLabel>
               <FormControl>
                 <Input placeholder="package" {...field} />
               </FormControl>

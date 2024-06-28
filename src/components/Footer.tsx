@@ -2,7 +2,7 @@ import { Button } from "./ui/button"
 
 const Footer = () => {
   return (
-    <footer className="flex justify-evenly items-center gap-8 p-10">
+    <footer className="flex justify-evenly items-center gap-8 p-10 bg-dark-bgb text-yellow-50">
     
            <div>
              Made by- Apoorv Shrivastava
@@ -12,7 +12,7 @@ const Footer = () => {
            </div>
       
         <div >
-            <Button asChild className="bg-gradient-to-r from-blue-400 via-green-500 to-pink-600 rounded-lg shadow-md">
+            <Button asChild className="bg-gradient-to-r from-blue-400 via-green-500 to-pink-600 text-yellow-100 rounded-lg shadow-md">
                 <a rel='noopener' target='_blank' href="https://github.com/apoorv-x12/npm-stats-viz">
                    Github
                 </a>

@@ -21,6 +21,10 @@ export default  {
     },
     extend: {
       colors: {
+        'dark-bgb':'#020817',
+        'dark-bgo':'#0C0A09',
+        'orange-1':'#ef4444',
+        'orange-2':'#f59e0b',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
