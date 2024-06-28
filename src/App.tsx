@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <div className="mb-2">
+      <div className="mb-2 sticky top-0 z-50 bg-dark-bgo">
         <Header/>
         <Separator/>
       </div>

@@ -2,7 +2,7 @@ import { Button } from "./ui/button"
 
 const Footer = () => {
   return (
-    <footer className="flex justify-evenly items-center gap-8 p-10 bg-dark-bgb text-yellow-50">
+    <footer className="flex justify-evenly items-center gap-8 p-10 bg-dark-bgb text-yellow-50 ">
     
            <div>
              Made by- Apoorv Shrivastava
