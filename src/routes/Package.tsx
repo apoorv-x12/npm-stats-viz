@@ -10,10 +10,10 @@ const Package = () => {
    
   return (
     <div>
-        <div className="m-16" >
+        <div className="mx-16 my-8" >
            <PackageInfo setName={setPackageName}/>
         </div>
-        <div className='mx-16 my-8 -mt-12'>
+        <div className='mx-16 my-8'>
            <Separator/>
         </div>
         {packageName === '' ?
