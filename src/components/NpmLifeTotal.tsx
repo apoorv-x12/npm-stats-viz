@@ -8,7 +8,7 @@ import Loader from './ui/loader'
 import TotalCard from './TotalCard'
 import { useToast } from './ui/use-toast'
 import { useEffect } from 'react'
-
+import Recharts from './Recharts'
 
 type Props = {
   name : string
@@ -20,7 +20,7 @@ const NpmLifeTotal = (props: Props) => {
     const { toast } = useToast()
 
   //const queryClient = useQueryClient()
-console.log('pn',props.name)
+   //console.log('pn',props.name)
     const metaDataQuery = useQuery({
     queryKey: ['metaData',props.name],
     queryFn: () => getMetaNpm(props.name), // Replace with your actual function n
@@ -52,8 +52,8 @@ console.log('pn',props.name)
       }
       else{
         toast({
-           title: 'Error',
-           description: 'Error fetching data',
+           title: 'Error  fetching data',
+           description: 'Wrong package name, Type again',
            variant: 'destructive',
            duration: 6000
           })
@@ -76,20 +76,21 @@ console.log('pn',props.name)
     return <div className="text-red-500 flex flex-col items-center">
               Error: {errorMessage}
             <div>
-              Probably the typed package name doesn't exist, Give an existing package name and try again!
+              The typed package name doesn't exist, Give an existing package name and try again!
             </div>
            </div> 
   }
 
   return (
     <>
-    <div>
+    <div className='flex flex-col justify-center items-center gap-16'>
       <TotalCard name={totalDownloadsQuery?.data?.package}
         createdOn={metaDataQuery?.data?.time?.created.split("T")[0]}
         totalDownloads={totalDownloadsQuery?.data?.downloads}
         downloadsEndDate={totalDownloadsQuery?.data?.end}
         downloadsStartDate={totalDownloadsQuery?.data?.start}
        />
+       <Recharts name={props.name}/>
     </div>
     </>
   )

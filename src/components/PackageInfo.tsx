@@ -12,6 +12,7 @@ import {
   FormMessage,
 } from "./ui/form"
 import { Input } from "./ui/input"
+import stats from "../assets/stats.svg"
 
 const formSchema = z.object({
   packagename: z.string({ required_error: "Please enter a package name" }),
@@ -41,7 +42,7 @@ const PackageInfo = (props:Props) => {
   return (
     <div>
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-col justify-center items-center text-center border-2 py-4">
         <FormField
           control={form.control}
           name="packagename"
@@ -50,8 +51,8 @@ const PackageInfo = (props:Props) => {
               <FormLabel className="text-transparent text-2xl bg-clip-text  bg-gradient-to-r from-blue-500 to-purple-500 ">
                 npm package name
               </FormLabel>
-              <FormControl>
-                <Input placeholder="package" {...field} />
+              <FormControl className="flex items-center justify-center">
+                <Input className="text-center" placeholder="type package name" {...field} />
               </FormControl>
               <FormDescription>
                 Type package name in Text Field above.
@@ -60,7 +61,15 @@ const PackageInfo = (props:Props) => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button className="flex justify-center items-center gap-2" type="submit">
+        <div >
+            <img className="animate-bounce" src={stats} width={50} height={50} alt="stats"/>
+        </div>
+        <div>
+           Get Stats
+        </div>
+        
+        </Button>
       </form>
     </Form>
   </div>

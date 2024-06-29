@@ -1,5 +1,4 @@
 import NpmLifeTotal from '../components/NpmLifeTotal';
-import Areachart from "../components/AreaChart"
 import { useState } from 'react';
 import PackageInfo from '../components/PackageInfo';
 import { Separator } from '../components/ui/separator';
@@ -22,9 +21,6 @@ const Package = () => {
             <NpmLifeTotal name={packageName}/>
         </div>
         }
-        <div className="flex items-center justify-center">
-            <Areachart/>
-        </div>
         
     </div>
   )

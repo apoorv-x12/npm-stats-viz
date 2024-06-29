@@ -3,15 +3,14 @@ import { Button } from "./ui/button"
 const Footer = () => {
   return (
     <footer className="flex justify-evenly items-center gap-8 p-10 text-transparent bg-clip-text bg-gradient-to-r from-orange-1 to-orange-2 text-md font-bold">
-           <div className="flex flex-col items-start">
+           <div className="flex flex-col gap-2 flex-wrap items-start">
             <div>
-              Made by- Apoorv Shrivastava
+              Made by - Apoorv Shrivastava
             </div>
             <div>
-              Tech Stack- React.js, TypeScript, Recharts.js, npmjs registry API, react-query, shadcn-ui, zod, llm, react-router
-            </div>
+              Tech Stack - React.js, TypeScript, npmjs API, @tanstack/react-query, tailwind.css, Recharts, Radix UI, shadcn/ui, zod, llm, react-router-dom
+            </div> 
            </div>
-          
       
         <div >
             <Button asChild className="bg-gradient-to-r from-blue-400 via-green-500 to-pink-600 text-black rounded-lg shadow-md">

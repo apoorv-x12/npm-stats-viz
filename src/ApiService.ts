@@ -14,4 +14,9 @@ const getTotalDownloadsInPeriod = async (period: string, packageName: string) =>
   return response.data;
 };
 
-export { getMetaNpm, getTotalDownloadsInPeriod }
+const getSingleDownloads = async (packageName: string, period: string) => {
+  const response = await axios.get(`${BASE_URL_NPM}/range/${period}/${packageName}`);
+  return response.data;
+}
+
+export { getMetaNpm, getTotalDownloadsInPeriod, getSingleDownloads }
