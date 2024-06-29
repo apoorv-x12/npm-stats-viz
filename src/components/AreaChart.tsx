@@ -23,7 +23,7 @@ const Areachart = (props : Props) => {
                 </linearGradient>
                 </defs>
                 <XAxis dataKey="day"/>
-                <YAxis />
+                <YAxis/>
                 <Tooltip />
                 <Area type="monotone" dataKey="downloads" stroke="#8884d8" fillOpacity={1} fill="url(#downloads)" />
         </AreaChart>
