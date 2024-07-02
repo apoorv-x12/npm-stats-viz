@@ -61,12 +61,18 @@ const PackageInfo = (props:Props) => {
             </FormItem>
           )}
         />
-        <Button className="flex justify-center items-center gap-2" type="submit">
+        <Button
+         className="flex justify-center items-center gap-2 bg-blue-950"
+         style={{ 
+             boxShadow: "0px 4px 4px 2px rgba(192, 192, 192, 1),0px -4px 4px 2px rgba(192, 192, 192, 1),4px 0px 4px 2px rgba(192, 192, 192, 1),-4px 0px 4px 2px rgba(192, 192, 192, 1)",
+          }}
+         type="submit"
+        >
         <div >
             <img className="animate-bounce" src={stats} width={50} height={50} alt="stats"/>
         </div>
         <div>
-           Get Stats
+            Get Stats
         </div>
         
         </Button>
