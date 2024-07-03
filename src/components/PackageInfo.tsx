@@ -62,14 +62,17 @@ const PackageInfo = (props:Props) => {
           )}
         />
         <Button
-         className="flex justify-center items-center gap-2 rounded-lg"
+         className="flex justify-center items-center gap-2"
          style={{ 
+            borderRadius: '50%',
+            marginTop: '8vh',
+            marginBottom: '4vh',
             backgroundImage: `
                 linear-gradient(to bottom, rgba(255, 242, 9, 0.5), transparent 50%, transparent 90%,rgba(255, 5, 150, 0.5) ), 
                 repeating-linear-gradient(60deg, rgba(255, 12, 19, 0.8) 0, rgba(255, 12, 19, 0.8) 10px , transparent 10px, transparent 20px, rgba(255, 5, 180, 0.5) 20px), 
                 linear-gradient(to bottom,  rgba(255, 1, 203, 0.8), rgba(255, 242, 9, 0.5))
               `,
-            boxShadow: "0px 4px 0px rgba(255, 50, 199, 0.5) ,0px 5px 0px rgba(1, 1, 1, 1),0px 4px 0px 8px rgba(255, 255, 192, 1),0px 0px 30px 20px rgba(255, 242, 9, 0.5)",
+            boxShadow: "0px 4px 0px rgba(255, 50, 199, 0.5) ,0px 5px 0px rgba(1, 1, 1, 1),0px 4px 0px 8px rgba(255, 255, 192, 1),0px 4px 30px 20px rgba(255, 2, 25, 0.7)",
           }}
          type="submit"
         >
