@@ -1,4 +1,4 @@
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend} from 'recharts';  
+import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer, Legend} from 'recharts';  
 
 type Props = {
   period : string,
@@ -22,8 +22,7 @@ const Areachart = (props : Props) => {
                 <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
                 </linearGradient>
                 </defs>
-                <XAxis dataKey="day"/>
-                <YAxis />
+                <XAxis dataKey="day" />
                 <Legend verticalAlign="top" height={36}/>
                 <Tooltip labelStyle={{ color: 'red' }} />
                 <Area type="monotone" dataKey="downloads" stroke="#8884d8" fillOpacity={1} fill="url(#downloads)" />
