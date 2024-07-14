@@ -1,7 +1,9 @@
 
 const GenAi = () => {
   return (
-    <div>GenAi</div>
+    <div>
+      Will be added soon
+    </div>
   )
 }
 

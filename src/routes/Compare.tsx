@@ -1,7 +1,9 @@
 
 const Compare = () => {
   return (
-    <div>Compare</div>
+    <div>
+      Will be added soon
+    </div>
   )
 }
 
