@@ -8,7 +8,7 @@ const Footer = () => {
               Made by - Apoorv Shrivastava
             </div>
             <div>
-              Tech Stack - React.js, TypeScript, npmjs API, @tanstack/react-query, tailwind.css, Recharts, Radix UI, shadcn/ui, zod, llm, react-router-dom
+              Tech Stack - React.js, TypeScript, npmjs API, @tanstack/react-query, tailwind.css, Recharts, Radix UI, shadcn/ui, Acceternity UI, zod, llm
             </div> 
            </div>
       
