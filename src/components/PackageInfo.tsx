@@ -20,7 +20,8 @@ const formSchema = z.object({
 
 type Props = {
   name? : string
-  setName : React.Dispatch<React.SetStateAction<string>>
+  setName : React.Dispatch<React.SetStateAction<string>>,
+  effect? : JSX.Element
 }
 
 const PackageInfo = (props:Props) => {
@@ -48,8 +49,10 @@ const PackageInfo = (props:Props) => {
           name="packagename"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-transparent text-2xl bg-clip-text  bg-gradient-to-r from-blue-500 to-purple-500 ">
-                npm package name
+              <FormLabel >
+                <div className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm mx-auto p-4 relative rounded-lg h-[10rem]">
+                  {props.effect}
+                </div>
               </FormLabel>
               <FormControl className="flex items-center justify-center">
                 <Input className="text-center" placeholder="type package name" {...field} />
@@ -82,10 +85,13 @@ const PackageInfo = (props:Props) => {
         <div>
             Get Stats
         </div>
-        
         </Button>
+        
+        
       </form>
+     
     </Form>
+    
   </div>
   )
 }

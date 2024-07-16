@@ -10,8 +10,8 @@ import compare from '../assets/compare.svg'
 
 const Header = () => {
   return (
-    <header className="flex p-4 justify-between gap-8">
-        <div className='animate-pulse'>
+    <header className="flex p-4 justify-between gap-8 ">
+        <div className='animate-pulse '>
           <ModeToggle />
         </div>
         <div className="flex flex-wrap justify-evenly gap-10 items-center bg-clip-text text-transparent bg-gradient-to-r from-orange-1 to-orange-2 text-xl text font-bold">
