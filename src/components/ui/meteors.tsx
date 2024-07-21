@@ -12,7 +12,7 @@ export const Meteors = ({
   const meteors = new Array(number || 20).fill(true);
   return (
     <>
-      {meteors.map(( idx) => (
+      {meteors.map((el, idx) => (
         <span
           key={"meteor" + idx}
           className={cn(
