@@ -1,6 +1,5 @@
 import {
- // createBrowserRouter,
-  createHashRouter
+  createBrowserRouter,
 } from "react-router-dom";
 import App from "./App"
 import Home from "./routes/Home";
@@ -8,7 +7,7 @@ import GenAi from "./routes/GenAi";
 import Compare from "./routes/Compare";
 import Package from "./routes/Package";
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
