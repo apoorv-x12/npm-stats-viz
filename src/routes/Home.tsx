@@ -1,10 +1,58 @@
+import { useEffect, useState } from 'react';
 import { PinContainer } from '../components/ui/3d-pin';
 import { BackgroundBeams } from '../components/ui/background-beams';
+import { Button } from '../components/ui/button';
 //import { Meteors } from '../components/ui/meteors';
 import { TextGenerateEffect } from '../components/ui/text-generate-effect';
 import { TypewriterEffect } from '../components/ui/typewriter-effect';
+import {getPackagesSearch} from '../ApiService';
+import { useQuery } from '@tanstack/react-query';
+import { useToast } from '../components/ui/use-toast';
+import Loader from '../components/ui/loader';
+import {
+  GlowingStarsBackgroundCard,
+  GlowingStarsDescription,
+  GlowingStarsTitle,
+} from "../components/ui/star-cards";
+
+type objectType = {
+  package: {
+     name: string,
+     description: string,
+     links:
+       { 
+        npm: string,
+        homepage:string
+       }
+    },
+  searchScore: number,
+  score: {
+    detail: {
+      maintanence: number,
+      quality: number,
+      popularity: number,
+    },
+    final: number
+  },
+}
 
 const Home = () => {
+    const [packageName, setPackageName] = useState('');
+    const {toast} = useToast();
+    
+    const npmQuery = useQuery(
+      {
+       queryKey: ['npmData', packageName],
+       queryFn: () => getPackagesSearch(packageName),
+       enabled: false , 
+    });
+
+    const packageSetter = () => {
+      npmQuery.refetch();
+    } 
+
+    console.log(npmQuery?.data)
+
     const words = [
     {
       text: "Welcome",
@@ -20,16 +68,41 @@ const Home = () => {
     },
   ];
 
+  useEffect(() => {
+
+    if(!npmQuery?.isLoading){
+
+      if(!npmQuery?.isError){
+        toast({
+          title: 'Success',
+          description: 'Data fetched successfully',
+          variant: 'success',
+          duration: 6000,
+        })
+      }
+      else{
+        toast({
+           title: 'Error  fetching data',
+           description: 'Wrong package name, Type again',
+           variant: 'destructive',
+           duration: 6000
+          })
+      }
+    } 
+  },
+  [npmQuery?.isLoading,npmQuery?.isError,toast]
+)
+
   return (
     <div>
       <div className='flex flex-col justify-center items-center gap-4 m-8'>
               <TypewriterEffect words={words}/>
               <TextGenerateEffect words={"Find out the stats of any npm package !"}/>
-              {/* <Meteors number={20} /> */}
+              <BackgroundBeams/>
       </div>
         
-      <div className="rounded-3xl pt-4 pb-10 mx-[5%] bg-neutral-50 dark:bg-neutral-950 relative flex flex-wrap gap-2 items-center justify-center antialiased">
-          <div className=' p-4 rounded-2xl' >
+      <div className="rounded-3xl pt-4 pb-10 mx-[20%] bg-neutral-50 dark:bg-neutral-950 relative flex flex-wrap gap-2 items-center justify-center antialiased">
+          <div className=' p-4 rounded-2xl ' >
                   <h1 className="relative z-10 text-lg md:text-2xl  bg-clip-text text-transparent bg-gradient-to-b from-orange-1 to-orange-2  text-center font-sans font-bold">
                     npm search
                   </h1>
@@ -39,9 +112,16 @@ const Home = () => {
                   </p>
                   <input
                     type="text"
+                    value={packageName}
+                    onChange={(e) => setPackageName(e.target.value)}
                     placeholder="Enter package name"
                     className="border text-red-500 rounded-lg border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4 p-2 text-center placeholder:text-red-500"
                   />
+                  <div className=' flex items-center justify-center'>
+                    <Button  onClick={()=>packageSetter()} className="mt-4 hover:bg-yellow-500 bg-gradient-to-r from-blue-400 to-pink-600 text-whitw rounded-lg shadow-2xl">
+                      Search
+                    </Button>
+                  </div>
           </div>
           <div className=" flex items-center justify-center ">
                   <PinContainer
@@ -62,11 +142,78 @@ const Home = () => {
                     </div>
                   </PinContainer>
           </div>
-          <BackgroundBeams />
+         
       </div>
-          
+
+      <div>
+        { 
+          npmQuery?.isLoading ?
+                <div className="w-full h-1/5 flex justify-center items-center">
+                  <Loader/>
+                </div>
+                :
+                null
+        }
+        
+        { 
+          npmQuery?.isError  ?
+                 <div className="text-red-500 flex flex-col items-center">
+                    Error: {npmQuery.isError ? npmQuery?.error?.message : null}
+                  <div>
+                    The typed package name doesn't exist, Give an existing package name and try again!
+                  </div>
+                </div>
+                 : 
+                null
+        }
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+            {
+              npmQuery?.data?.total > 0 ?
+              npmQuery?.data?.objects?.map((item: objectType,index:number)=>{
+
+                return (
+                  <div className="flex flex-wrap py-5 items-center justify-center antialiased" key={index}>
+                    <GlowingStarsBackgroundCard>
+                      <GlowingStarsTitle>
+                        <div className='my-2 text-ellipsis break-all'>
+                          {item?.package?.name}
+                        </div>  
+                      </GlowingStarsTitle>
+                      <GlowingStarsDescription>
+                          <div className='flex flex-col gap-2'>
+                                <div className='my-2 text-ellipsis break-words'>
+                                    {item?.package?.description}
+                                </div>
+                                <div>
+                                  searchScore: {item?.searchScore}
+                                </div> 
+                                <div>
+                                  score: {item?.score?.final}
+                                </div>
+                                <div className='flex gap-2 justify-evenly mt-4 border-t-2 border-cyan-500'>
+                                    <a target='_blank' href={item?.package?.links?.npm} className='text-blue-500'>
+                                      npm link
+                                    </a>
+                                    <a target='_blank' href={item?.package?.links?.homepage} className='text-blue-500'>
+                                      homepage
+                                    </a>
+                                </div>
+                          </div>
+                      </GlowingStarsDescription>
+                      
+                    </GlowingStarsBackgroundCard>
+                  </div>
+                )
+              })
+              :
+              null
+            }
+        </div>
+      </div>
     </div>
   )
 }
 
 export default Home
+
+ 
