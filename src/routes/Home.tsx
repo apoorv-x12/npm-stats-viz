@@ -111,7 +111,7 @@ const Home = () => {
               <BackgroundBeams/>
       </div>
         
-      <div className="rounded-3xl pt-4 pb-10 mx-[20%] bg-neutral-50 dark:bg-neutral-950 relative flex flex-wrap gap-2 items-center justify-center antialiased">
+      <div className="rounded-3xl pt-4 pb-10 mx-[10%] bg-neutral-50 dark:bg-neutral-950 relative flex flex-wrap gap-2 items-center justify-center antialiased">
           <div className=' p-4 rounded-2xl ' >
                   <h1 className="relative z-10 text-lg md:text-2xl  bg-clip-text text-transparent bg-gradient-to-b from-orange-1 to-orange-2  text-center font-sans font-bold">
                     npm search
