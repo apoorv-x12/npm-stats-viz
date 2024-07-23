@@ -51,6 +51,17 @@ const Home = () => {
       npmQuery.refetch();
     } 
 
+    const numToStars = (num: number) => {
+      let stars = '';
+      const star='⭐';
+      const iterations = Math.round(num*10);
+      if(iterations===0)
+        return '⓿';
+      for (let i = 0; i < iterations; i++)
+        stars += star;
+      return stars;
+    };
+
     console.log(npmQuery?.data)
 
     const words = [
@@ -158,7 +169,7 @@ const Home = () => {
         { 
           npmQuery?.isError  ?
                  <div className="text-red-500 flex flex-col items-center">
-                    Error: {npmQuery.isError ? npmQuery?.error?.message : null}
+                    Error: {npmQuery?.error?.message}
                   <div>
                     The typed package name doesn't exist, Give an existing package name and try again!
                   </div>
@@ -185,11 +196,20 @@ const Home = () => {
                                     {item?.package?.description}
                                 </div>
                                 <div>
-                                  searchScore: {item?.searchScore}
-                                </div> 
-                                <div>
-                                  score: {item?.score?.final}
+                                  Quality Score: {numToStars(item?.score?.detail?.quality)}
                                 </div>
+                                <div>
+                                  Popularity Score: {numToStars(item?.score?.detail?.popularity)}
+                                </div>
+                                <div>
+                                  Maintenance Score: {numToStars(item?.score?.detail?.maintenance)}
+                                </div>
+                                <div>
+                                  Overall Score: {numToStars(item?.score?.final)}
+                                </div>
+                                 {/* <div>
+                                  Search Score: {item?.searchScore} 
+                                </div> */}
                                 <div className='flex gap-2 justify-evenly mt-4 border-t-2 border-cyan-500'>
                                     <a target='_blank' href={item?.package?.links?.npm} className='text-blue-500'>
                                       npm link
@@ -200,7 +220,6 @@ const Home = () => {
                                 </div>
                           </div>
                       </GlowingStarsDescription>
-                      
                     </GlowingStarsBackgroundCard>
                   </div>
                 )
