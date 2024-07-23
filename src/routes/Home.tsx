@@ -8,11 +8,11 @@ import {getPackagesSearch} from '../ApiService';
 import { useQuery } from '@tanstack/react-query';
 import { useToast } from '../components/ui/use-toast';
 import Loader from '../components/ui/loader';
-import {
-  GlowingStarsBackgroundCard,
-  GlowingStarsDescription,
-  GlowingStarsTitle,
-} from "../components/ui/star-cards";
+// import {
+//   GlowingStarsBackgroundCard,
+//   GlowingStarsDescription,
+//   GlowingStarsTitle,
+// } from "../components/ui/star-cards";
 
 type objectType = {
   package: {
@@ -41,7 +41,7 @@ const Home = () => {
     
     const npmQuery = useQuery(
       {
-       queryKey: ['npmData', packageName],
+       queryKey: ['npmData'],
        queryFn: () => getPackagesSearch(packageName),
        enabled: false , 
     });
@@ -82,7 +82,7 @@ const Home = () => {
 
     if(!npmQuery?.isLoading){
 
-      if(!npmQuery?.isError){
+      if(npmQuery?.isSuccess){
         toast({
           title: 'Success',
           description: 'Data fetched successfully',
@@ -90,7 +90,7 @@ const Home = () => {
           duration: 6000,
         })
       }
-      else{
+      else if(npmQuery?.isError){
         toast({
            title: 'Error  fetching data',
            description: 'Wrong package name, Type again',
@@ -100,7 +100,7 @@ const Home = () => {
       }
     } 
   },
-  [npmQuery?.isLoading,npmQuery?.isError,toast]
+  [npmQuery?.isLoading,npmQuery?.isError,npmQuery?.isSuccess,toast]
 )
 
   return (
@@ -176,14 +176,44 @@ const Home = () => {
                  : 
                 null
         }
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4'>
             {
               npmQuery?.data?.total > 0 ?
               npmQuery?.data?.objects?.map((item: objectType,index:number)=>{
 
                 return (
-                  <div className="flex flex-wrap py-5 items-center justify-center antialiased" key={index}>
-                    <GlowingStarsBackgroundCard>
+                  <div className="flex gap-2 flex-col p-4 items-start justify-start border-2 rounded-lg antialiased bg-neutral-100 dark:bg-dark-bgb dark:text-yellow-100 text-blue-950 " key={index}>
+                   
+                      <div className='my-4 font-bold text-ellipsis break-all'>
+                        {item?.package?.name}
+                      </div>
+
+                      <div className='my-2 font-medium text-ellipsis break-all'>
+                            {item?.package?.description}
+                      </div>
+                      <div>
+                         Quality Score: {numToStars(item?.score?.detail?.quality)}
+                      </div>
+                      <div>
+                         Popularity Score: {numToStars(item?.score?.detail?.popularity)}
+                      </div>
+                      <div>
+                         Maintenance Score: {numToStars(item?.score?.detail?.maintenance)}
+                      </div>
+                      <div>
+                         Overall Score: {numToStars(item?.score?.final)}
+                      </div>
+
+                      <div className='flex gap-20 justify-center items-center mt-8 border-t-2 border-cyan-500'>
+                            <a target='_blank' href={item?.package?.links?.npm} className='text-blue-500'>
+                                npm link
+                            </a>
+                            <a target='_blank' href={item?.package?.links?.homepage} className='text-blue-500'>
+                                homepage
+                            </a>
+                      </div>
+              
+                    {/* <GlowingStarsBackgroundCard>
                       <GlowingStarsTitle>
                         <div className='my-2 text-ellipsis break-all'>
                           {item?.package?.name}
@@ -206,9 +236,9 @@ const Home = () => {
                                 <div>
                                   Overall Score: {numToStars(item?.score?.final)}
                                 </div>
-                                 {/* <div>
+                                 <div>
                                   Search Score: {item?.searchScore} 
-                                </div> */}
+                                </div>
                                 <div className='flex gap-2 justify-evenly mt-4 border-t-2 border-cyan-500'>
                                     <a target='_blank' href={item?.package?.links?.npm} className='text-blue-500'>
                                       npm link
@@ -219,7 +249,7 @@ const Home = () => {
                                 </div>
                           </div>
                       </GlowingStarsDescription>
-                    </GlowingStarsBackgroundCard>
+                    </GlowingStarsBackgroundCard> */}
                   </div>
                 )
               })
