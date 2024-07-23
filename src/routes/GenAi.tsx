@@ -1,8 +1,8 @@
 
 const GenAi = () => {
   return (
-    <div>
-      Will be added soon
+    <div className="flex justify-center mt-4">
+      Generative AI capabilities will be added soon
     </div>
   )
 }

@@ -21,7 +21,8 @@ const formSchema = z.object({
 type Props = {
   name? : string
   setName : React.Dispatch<React.SetStateAction<string>>,
-  effect? : JSX.Element
+  effect? : JSX.Element,
+  note? : string,
 }
 
 const PackageInfo = (props:Props) => {
@@ -58,7 +59,8 @@ const PackageInfo = (props:Props) => {
                 <Input className="text-center" placeholder="type package name" {...field} />
               </FormControl>
               <FormDescription>
-                Type package name in Text Field above.
+                {props?.note}
+                
               </FormDescription>
               <FormMessage />
             </FormItem>

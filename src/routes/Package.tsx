@@ -21,6 +21,7 @@ const Package = () => {
         <div className="mx-16 my-8" >
            <PackageInfo setName={setPackageName} 
            effect={ <EvervaultCard text="Package Downloads : " />}
+           note={'Type package name in Text Field above.'}
            />
 
         </div>
