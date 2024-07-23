@@ -28,7 +28,7 @@ type objectType = {
   searchScore: number,
   score: {
     detail: {
-      maintanence: number,
+      maintenance: number,
       quality: number,
       popularity: number,
     },
