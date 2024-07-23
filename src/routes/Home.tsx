@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { PinContainer } from '../components/ui/3d-pin';
 import { BackgroundBeams } from '../components/ui/background-beams';
 import { Button } from '../components/ui/button';
-//import { Meteors } from '../components/ui/meteors';
 import { TextGenerateEffect } from '../components/ui/text-generate-effect';
 import { TypewriterEffect } from '../components/ui/typewriter-effect';
 import {getPackagesSearch} from '../ApiService';
@@ -62,7 +61,7 @@ const Home = () => {
       return stars;
     };
 
-    console.log(npmQuery?.data)
+   // console.log(npmQuery?.data)
 
     const words = [
     {
