@@ -52,7 +52,7 @@ const ComparePackages = (props: PropType) => {
 
   return (
 
-    <div className="flex flex-col gap-8 p-6 justify-center items-center border-2 dark:bg-dark-bgb bg-yellow-50 dark:text-yellow-100 text-blue-950 rounded-lg">
+    <div className="flex flex-col gap-8 p-6 justify-center items-center dark:text-yellow-100 text-blue-950 ">
         <div>
             <h1 className='text-3xl font-bold flex gap-4 flex-col'>
                <div>package_A : {packages[0]}</div>

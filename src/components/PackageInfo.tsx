@@ -44,7 +44,7 @@ const PackageInfo = (props:Props) => {
   return (
     <div>
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-col justify-center items-center text-center border-2 py-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-col justify-center items-center text-center border-2 p-4">
         <FormField
           control={form.control}
           name="packagename"
