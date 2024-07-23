@@ -35,16 +35,16 @@ const ComparePackages = (props: PropType) => {
         package_B:0,
        }
        if(name==='last-day'){
-        ob.package_A=compareDayQuery?.data?.[packages[0]].downloads || 0
-        ob.package_B=compareDayQuery?.data?.[packages[1]].downloads || 0
+        ob.package_A=compareDayQuery?.data?.[packages?.[0]]?.downloads || 0
+        ob.package_B=compareDayQuery?.data?.[packages?.[1]]?.downloads || 0
        }
        else if(name==='last-month'){
-        ob.package_A=compareMonthQuery?.data?.[packages[0]].downloads || 0
-        ob.package_B=compareMonthQuery?.data?.[packages[1]].downloads || 0
+        ob.package_A=compareMonthQuery?.data?.[packages?.[0]]?.downloads || 0
+        ob.package_B=compareMonthQuery?.data?.[packages?.[1]]?.downloads || 0
        }
        else if(name==='last-year'){
-        ob.package_A=compareYearQuery?.data?.[packages[0]].downloads || 0
-        ob.package_B=compareYearQuery?.data?.[packages[1]].downloads || 0
+        ob.package_A=compareYearQuery?.data?.[packages?.[0]]?.downloads || 0
+        ob.package_B=compareYearQuery?.data?.[packages?.[1]]?.downloads || 0
        }
        return [ob]
     }
@@ -55,8 +55,8 @@ const ComparePackages = (props: PropType) => {
     <div className="flex flex-col gap-8 p-6 justify-center items-center dark:text-yellow-100 text-blue-950 ">
         <div>
             <h1 className='text-3xl font-bold flex gap-4 flex-col'>
-               <div>package_A : {packages[0]}</div>
-               <div>package_B : {packages[1]}</div>
+               <div>package_A : {packages?.[0]}</div>
+               <div>package_B : {packages?.[1]}</div>
             </h1>
         </div>
         <div className="flex flex-wrap gap-16 p-6 justify-center items-center dark:bg-dark-bgb bg-yellow-50 dark:text-yellow-100 text-blue-950">
