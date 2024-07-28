@@ -53,12 +53,6 @@ const ComparePackages = (props: PropType) => {
   return (
 
     <div className="flex flex-col gap-8 p-6 justify-center items-center dark:text-yellow-100 text-blue-950 ">
-        <div>
-            <h1 className='text-3xl font-bold flex gap-4 flex-col'>
-               <div>package_A : {packages?.[0]}</div>
-               <div>package_B : {packages?.[1]}</div>
-            </h1>
-        </div>
         <div className="flex flex-wrap gap-16 p-6 justify-center items-center dark:bg-dark-bgb bg-yellow-50 dark:text-yellow-100 text-blue-950">
             {
             compareDayQuery?.isLoading && <div className='flex justify-center items-center'><Loader /></div>
@@ -68,9 +62,17 @@ const ComparePackages = (props: PropType) => {
             compareDayQuery?.isError && <p className='text-red-500 text-center'>Error fetching data</p>
             }
 
-            {
-            compareDayQuery?.data && <BarChart data={dataCreator('last-day')} />
-            }
+
+            <div className="flex flex-col gap-8">
+                <h1 className='text-2xl font-bold flex gap-4 flex-col justify-center items-center'>
+                <div>package_A : {packages?.[0]}</div>
+                <div>package_B : {packages?.[1]}</div>
+                </h1>
+        
+                {
+                compareDayQuery?.data && <BarChart data={dataCreator('last-day')} />
+                }
+            </div>
 
             {
             compareMonthQuery?.isLoading && <div className='flex justify-center items-center'><Loader /></div>
@@ -80,9 +82,15 @@ const ComparePackages = (props: PropType) => {
             compareMonthQuery?.isError && <p className='text-red-500 text-center'>Error fetching data</p>
             }
 
-            {  
-            compareMonthQuery?.data && <BarChart data={dataCreator('last-month')} />
-            }
+            <div className="flex flex-col gap-8">
+                <h1 className='text-2xl font-bold flex gap-4 flex-col justify-center items-center'>
+                <div>package_A : {packages?.[0]}</div>
+                <div>package_B : {packages?.[1]}</div>
+                </h1>
+                {  
+                compareMonthQuery?.data && <BarChart data={dataCreator('last-month')} />
+                }
+            </div>
 
             {
             compareYearQuery?.isLoading && <div className='flex justify-center items-center'><Loader /></div>
@@ -92,9 +100,16 @@ const ComparePackages = (props: PropType) => {
             compareYearQuery?.isError && <p className='text-red-500 text-center'>Error fetching data</p>
             }
 
-            {
-            compareYearQuery?.data && <BarChart data={dataCreator('last-year')} />
-            }
+            <div className="flex flex-col gap-8">
+                <h1 className='text-2xl font-bold flex gap-4 flex-col justify-center items-center'>
+                <div>package_A : {packages?.[0]}</div>
+                <div>package_B : {packages?.[1]}</div>
+                </h1>
+                {
+                compareYearQuery?.data && <BarChart data={dataCreator('last-year')} />
+                }
+            </div>
+
         </div>
      
 
