@@ -16,7 +16,7 @@ COPY . .
 RUN npm run build
 
 # Production Stage
-FROM nginx:latest
+FROM nginx:alpine as production
 
 # Copy the NGINX configuration file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
