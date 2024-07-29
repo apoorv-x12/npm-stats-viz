@@ -19,7 +19,7 @@ RUN npm run build
 FROM nginx:alpine as production
 
 # Copy the NGINX configuration file
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy the build artifacts from the build stage to NGINX web server
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
