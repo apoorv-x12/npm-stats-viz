@@ -1,5 +1,5 @@
 # Build Stage
-FROM node:21-alpine as build-stage
+FROM node:21-alpine AS build-stage
 
 WORKDIR /app
 
@@ -16,13 +16,13 @@ COPY . .
 RUN npm run build
 
 # Production Stage
-FROM nginx:alpine as production
+FROM nginx:alpine AS production
 
 # Copy the NGINX configuration file
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy the build artifacts from the build stage to NGINX web server
-COPY --from=build-stage /app/build/ /usr/share/nginx/html
+COPY --from=build-stage /app/dist/ /usr/share/nginx/html
 
 # We need to make sure not to run the container as a non root user
 # for better security
