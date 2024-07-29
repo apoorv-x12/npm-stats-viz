@@ -68,6 +68,9 @@ You can use these endpoints to gather download statistics and metadata for npm p
 
 ```
 
+## Docker + nginx containerization 
+[link](https://behdadk.medium.com/how-to-dockerize-a-react-application-in-5-minutes-c6093636628f)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
