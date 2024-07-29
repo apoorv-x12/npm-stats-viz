@@ -84,6 +84,7 @@ export function CardPattern({ mouseX, mouseY, randomString }: { mouseX: MotionVa
 
 const characters =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+// eslint-disable-next-line react-refresh/only-export-components
 export const generateRandomString = (length: number) => {
   let result = "";
   for (let i = 0; i < length; i++) {
