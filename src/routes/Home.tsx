@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { PinContainer } from '../components/ui/3d-pin';
-import { BackgroundBeams } from '../components/ui/background-beams';
+//import { BackgroundBeams } from '../components/ui/background-beams';
 import { Button } from '../components/ui/button';
 import { TextGenerateEffect } from '../components/ui/text-generate-effect';
 import { TypewriterEffect } from '../components/ui/typewriter-effect';
@@ -8,6 +8,7 @@ import {getPackagesSearch} from '../ApiService';
 import { useQuery } from '@tanstack/react-query';
 import { useToast } from '../components/ui/use-toast';
 import Loader from '../components/ui/loader';
+import { Meteors } from '../components/ui/meteors';
 // import {
 //   GlowingStarsBackgroundCard,
 //   GlowingStarsDescription,
@@ -37,6 +38,8 @@ type objectType = {
 
 const Home = () => {
     const [packageName, setPackageName] = useState('');
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     const {toast} = useToast();
     
     const npmQuery = useQuery(
@@ -79,7 +82,9 @@ const Home = () => {
   ];
 
   useEffect(() => {
-
+    
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
     if(!npmQuery?.isLoading){
 
       if(npmQuery?.isSuccess){
@@ -99,6 +104,9 @@ const Home = () => {
           })
       }
     } 
+  
+    return () => window.removeEventListener('resize', handleResize);
+
   },
   [npmQuery?.isLoading,npmQuery?.isError,npmQuery?.isSuccess,toast]
 )
@@ -108,7 +116,8 @@ const Home = () => {
       <div className='flex flex-col justify-center items-center gap-4 m-8'>
               <TypewriterEffect words={words}/>
               <TextGenerateEffect words={"Find out the stats of any npm package !"}/>
-              <BackgroundBeams/>
+              {/* <BackgroundBeams/> */}
+               {windowWidth > 820 ? <Meteors number={20}/> : null}
       </div>
         
       <div className="rounded-3xl pt-4 pb-10 mx-[10%] bg-neutral-50 dark:bg-neutral-950 relative flex flex-wrap gap-2 items-center justify-center antialiased">
