@@ -20,9 +20,7 @@ function App() {
         <Separator/>
         <Footer/>
         <Separator/>
-
       </div>
-      {/* <Meteors number={20} /> */}
       <Toaster />
     </>
   )
