@@ -44,14 +44,14 @@ const PackageInfo = (props:Props) => {
   return (
     <div>
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-col justify-center items-center text-center border-2 p-4 dark:bg-dark-bgb bg-blue-50 rounded-sm ">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-col justify-center items-center text-center border-2 p-4 dark:bg-dark-bgb bg-blue-100 rounded-sm ">
         <FormField
           control={form.control}
           name="packagename"
           render={({ field }) => (
             <FormItem>
               <FormLabel >
-                <div className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm mx-auto p-4 relative rounded-lg h-[10rem]">
+                <div className="border bg-gray-50 dark:bg-neutral-950 border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm mx-auto p-4 relative rounded-lg h-[10rem]">
                   {props.effect}
                 </div>
               </FormLabel>

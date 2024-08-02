@@ -53,7 +53,7 @@ const ComparePackages = (props: PropType) => {
   return (
 
     <div className="flex flex-col gap-8 p-6 justify-center items-center dark:text-yellow-100 text-blue-950 ">
-        <div className="flex flex-wrap gap-16 p-6 justify-center items-center dark:bg-dark-bgb bg-yellow-100 dark:text-yellow-100 text-blue-900 rounded-md">
+        <div className="flex flex-wrap gap-16 p-6 justify-center items-center dark:bg-dark-bgb bg-blue-100 dark:text-yellow-100 text-blue-900 rounded-md">
             {
             compareDayQuery?.isLoading && <div className='flex justify-center items-center'><Loader /></div>
             }
