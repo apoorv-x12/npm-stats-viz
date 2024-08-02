@@ -120,7 +120,7 @@ const Home = () => {
                {windowWidth > 820 ? <Meteors number={20}/> : null}
       </div>
         
-      <div className="rounded-3xl pt-4 pb-10 mx-[10%] bg-neutral-50 dark:bg-neutral-950 relative flex flex-wrap gap-2 items-center justify-center antialiased">
+      <div className="rounded-3xl pt-4 pb-10 mx-[10%] sm:bg-blue-50 sm:dark:bg-dark-bgb relative flex flex-wrap gap-2 items-center justify-center antialiased">
           <div className=' p-4 rounded-2xl ' >
                   <h1 className="relative z-10 text-lg md:text-2xl  bg-clip-text text-transparent bg-gradient-to-b from-orange-1 to-orange-2  text-center font-sans font-bold">
                     npm search
@@ -146,7 +146,7 @@ const Home = () => {
                   <PinContainer
                     title="Link to my other projects"
                     href="https://github.com/apoorv-x12"
-                    className='bg-green-100  dark:bg-dark-bgo'
+                    className='bg-green-100 dark:bg-dark-bgo p-4 rounded-2xl'
                   >
                     <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[15rem] h-[15rem] ">
                       <h3 className="!pb-2 !m-0 font-bold text-base text-red-500">
@@ -191,7 +191,7 @@ const Home = () => {
               npmQuery?.data?.objects?.map((item: objectType,index:number)=>{
 
                 return (
-                  <div className="flex gap-2 flex-col p-4 items-start justify-start border-2 rounded-lg antialiased bg-neutral-100 dark:bg-dark-bgb dark:text-yellow-100 text-blue-950 " key={index}>
+                  <div className="flex gap-2 flex-col p-4 items-start justify-start border-2 rounded-lg antialiased bg-pal-21 text-yellow-200" key={index}>
                    
                       <div className='my-4 font-bold text-ellipsis break-all'>
                         {item?.package?.name}
@@ -213,11 +213,11 @@ const Home = () => {
                          Overall Score: {numToStars(item?.score?.final)}
                       </div>
 
-                      <div className='flex gap-20 justify-center items-center mt-8 border-t-2 border-cyan-500'>
-                            <a target='_blank' href={item?.package?.links?.npm} className='text-blue-500'>
+                      <div className='flex gap-20 justify-center items-center mt-8 border-t-2 border-yellow-500'>
+                            <a target='_blank' href={item?.package?.links?.npm} className='font-medium underline'>
                                 npm link
                             </a>
-                            <a target='_blank' href={item?.package?.links?.homepage} className='text-blue-500'>
+                            <a target='_blank' href={item?.package?.links?.homepage} className='font-medium underline'>
                                 homepage
                             </a>
                       </div>

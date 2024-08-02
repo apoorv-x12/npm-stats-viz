@@ -9,14 +9,14 @@ function App() {
 
   return (
     <>
-      <div className="mb-2 sticky top-0 z-[10000] dark:bg-dark-bgo bg-gray-50">
+      <div className="mb-2 sticky top-0 z-[10000] dark:bg-pal-20 bg-pal-25">
         <Header/>
         <Separator/>
       </div>
       <main>
         <Outlet />
       </main>
-      <div className="mt-12 dark:bg-dark-bgo bg-purple-50">
+      <div className="mt-12 dark:bg-dark-bgb bg-blue-100">
         <Separator/>
         <Footer/>
         <Separator/>

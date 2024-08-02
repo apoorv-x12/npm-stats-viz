@@ -2,7 +2,7 @@ import { Button } from "./ui/button"
 
 const Footer = () => {
   return (
-    <footer className="flex justify-evenly items-center gap-8 p-10 text-transparent bg-clip-text bg-gradient-to-r from-orange-1 to-orange-2 text-md font-bold">
+    <footer className="flex justify-evenly items-center gap-8 p-10 text-transparent bg-clip-text bg-gradient-to-r from-orange-1 to-orange-700 text-md font-bold">
            <div className="flex flex-col gap-2 flex-wrap items-start">
             <div>
               Made by - Apoorv Shrivastava
