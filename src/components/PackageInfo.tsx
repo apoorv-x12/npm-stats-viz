@@ -51,7 +51,7 @@ const PackageInfo = (props:Props) => {
           render={({ field }) => (
             <FormItem>
               <FormLabel >
-                <div className="border bg-gray-50 dark:bg-neutral-950 border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm mx-auto p-4 relative rounded-lg h-[10rem]">
+                <div className="border bg-white dark:bg-black border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm mx-auto p-4 relative rounded-lg h-[10rem]">
                   {props.effect}
                 </div>
               </FormLabel>

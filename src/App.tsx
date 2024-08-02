@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div className="mb-2 sticky top-0 z-[10000] dark:bg-pal-20 bg-pal-25">
+      <div className="mb-2 sticky top-0 z-[10000] dark:bg-dark-bgb bg-pal-25">
         <Header/>
         <Separator/>
       </div>
