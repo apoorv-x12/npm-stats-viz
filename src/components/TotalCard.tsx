@@ -11,7 +11,7 @@ const TotalCard = (props: Props) => {
         <h1 className='mb-2 font-bold'>Package Stats for last 18 months</h1>
         <div className="flex flex-wrap gap-8 justify-center items-center m-4 p-2">
             <div className="flex flex-col justify-center items-center gap-1">
-               <div>Package Name: </div>  <b> {props.name} </b> 
+               <div>Package Name: </div>  <b> {props.name}  </b> 
             </div>
             <div className="flex flex-col justify-center items-center gap-1">
                <div>Created on:  </div>  <b> {props.createdOn} </b>
