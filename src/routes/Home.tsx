@@ -231,27 +231,27 @@ const Home = () => {
       </div>
 
       <div className='mx-40 my-6 flex flex-col items-center '>
-        <div className='font-bold'>FAQs</div>
-        <Accordion type="single" collapsible className="sm:w-full">
-          <AccordionItem value="item-1">
+        <div className='font-bold text-2xl mb-2'>FAQs</div>
+        <Accordion type="single" collapsible className="sm:w-full space-y-1">
+          <AccordionItem className='bg-red-500 rounded-md p-4 text-white' value="item-1">
             <AccordionTrigger>Are deprecated packages displayed?</AccordionTrigger>
             <AccordionContent>
               No. npmjs APIs don't return information about packages which are deprecated.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-2">
+          <AccordionItem className='bg-orange-500 rounded-md p-4 text-white' value="item-2">
             <AccordionTrigger>Is there any limitation to data?</AccordionTrigger>
             <AccordionContent>
               Yes. Data returned from the registry is at most 18 months.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-3">
+          <AccordionItem className='bg-blue-500 rounded-md p-4 text-white' value="item-3">
             <AccordionTrigger>Any, Future enhancements?</AccordionTrigger>
             <AccordionContent>
               Yes. Integration of GenAi for various features.
             </AccordionContent>
           </AccordionItem>
-           <AccordionItem value="item-4">
+           <AccordionItem className='bg-green-500 rounded-md p-4 text-white' value="item-4">
             <AccordionTrigger>What about scoped packages?</AccordionTrigger>
             <AccordionContent>
               Except compare page, scoped packages are supported.
