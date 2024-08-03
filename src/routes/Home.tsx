@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { PinContainer } from '../components/ui/3d-pin';
-//import { BackgroundBeams } from '../components/ui/background-beams';
 import { Button } from '../components/ui/button';
 import { TextGenerateEffect } from '../components/ui/text-generate-effect';
 import { TypewriterEffect } from '../components/ui/typewriter-effect';
@@ -9,11 +8,12 @@ import { useQuery } from '@tanstack/react-query';
 import { useToast } from '../components/ui/use-toast';
 import Loader from '../components/ui/loader';
 import { Meteors } from '../components/ui/meteors';
-// import {
-//   GlowingStarsBackgroundCard,
-//   GlowingStarsDescription,
-//   GlowingStarsTitle,
-// } from "../components/ui/star-cards";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui/accordion"
 
 type objectType = {
   package: {
@@ -221,44 +221,6 @@ const Home = () => {
                                 homepage
                             </a>
                       </div>
-              
-                    {/* <GlowingStarsBackgroundCard>
-                      <GlowingStarsTitle>
-                        <div className='my-2 text-ellipsis break-all'>
-                          {item?.package?.name}
-                        </div>  
-                      </GlowingStarsTitle>
-                      <GlowingStarsDescription>
-                          <div className='flex flex-col gap-2'>
-                                <div className='my-2 text-ellipsis break-words'>
-                                    {item?.package?.description}
-                                </div>
-                                <div>
-                                  Quality Score: {numToStars(item?.score?.detail?.quality)}
-                                </div>
-                                <div>
-                                  Popularity Score: {numToStars(item?.score?.detail?.popularity)}
-                                </div>
-                                <div>
-                                  Maintenance Score: {numToStars(item?.score?.detail?.maintenance)}
-                                </div>
-                                <div>
-                                  Overall Score: {numToStars(item?.score?.final)}
-                                </div>
-                                 <div>
-                                  Search Score: {item?.searchScore} 
-                                </div>
-                                <div className='flex gap-2 justify-evenly mt-4 border-t-2 border-cyan-500'>
-                                    <a target='_blank' href={item?.package?.links?.npm} className='text-blue-500'>
-                                      npm link
-                                    </a>
-                                    <a target='_blank' href={item?.package?.links?.homepage} className='text-blue-500'>
-                                      homepage
-                                    </a>
-                                </div>
-                          </div>
-                      </GlowingStarsDescription>
-                    </GlowingStarsBackgroundCard> */}
                   </div>
                 )
               })
@@ -267,6 +229,37 @@ const Home = () => {
             }
         </div>
       </div>
+
+      <div className='mx-40 my-6 flex flex-col items-center '>
+        <div className='font-bold'>FAQs</div>
+        <Accordion type="single" collapsible className="sm:w-full">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Are deprecated packages displayed?</AccordionTrigger>
+            <AccordionContent>
+              No. npmjs APIs don't return information about packages which are deprecated.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Is there any limitation to data?</AccordionTrigger>
+            <AccordionContent>
+              Yes. Data returned from the registry is at most 18 months.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Any, Future enhancements?</AccordionTrigger>
+            <AccordionContent>
+              Yes. Integration of GenAi for various features.
+            </AccordionContent>
+          </AccordionItem>
+           <AccordionItem value="item-4">
+            <AccordionTrigger>What about scoped packages?</AccordionTrigger>
+            <AccordionContent>
+              Except compare page, scoped packages are supported.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+       
     </div>
   )
 }
