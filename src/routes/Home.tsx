@@ -233,25 +233,25 @@ const Home = () => {
       <div className='mx-40 my-6 flex flex-col items-center '>
         <div className='font-bold text-2xl mb-2'>FAQs</div>
         <Accordion type="single" collapsible className="sm:w-full space-y-1">
-          <AccordionItem className='bg-red-500 rounded-md p-4 text-white' value="item-1">
+          <AccordionItem className='bg-gradient-to-r from-red-500 to-orange-500 rounded-md p-4 text-white' value="item-1">
             <AccordionTrigger>Are deprecated packages displayed?</AccordionTrigger>
             <AccordionContent>
               No. npmjs APIs don't return information about packages which are deprecated.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem className='bg-orange-500 rounded-md p-4 text-white' value="item-2">
+          <AccordionItem className='bg-gradient-to-r from-pink-500 to-amber-500 rounded-md p-4 text-white' value="item-2">
             <AccordionTrigger>Is there any limitation to data?</AccordionTrigger>
             <AccordionContent>
               Yes. Data returned from the registry is at most 18 months.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem className='bg-blue-500 rounded-md p-4 text-white' value="item-3">
-            <AccordionTrigger>Any, Future enhancements?</AccordionTrigger>
+          <AccordionItem className='bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-md p-4 text-white' value="item-3">
+            <AccordionTrigger>Any plans for Future enhancements?</AccordionTrigger>
             <AccordionContent>
               Yes. Integration of GenAi for various features.
             </AccordionContent>
           </AccordionItem>
-           <AccordionItem className='bg-green-500 rounded-md p-4 text-white' value="item-4">
+           <AccordionItem className='bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-md p-4 text-white' value="item-4">
             <AccordionTrigger>What about scoped packages?</AccordionTrigger>
             <AccordionContent>
               Except compare page, scoped packages are supported.
