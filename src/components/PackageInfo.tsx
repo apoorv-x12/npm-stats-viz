@@ -38,9 +38,8 @@ const PackageInfo = (props:Props) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     props.setName(values.packagename)
-    //console.log(values)
   }
-
+   
   return (
     <div>
     <Form {...form}>
@@ -59,8 +58,12 @@ const PackageInfo = (props:Props) => {
                 <Input className="text-center" placeholder="type package name" {...field} />
               </FormControl>
               <FormDescription>
-                {props?.note}
-                
+                <div>
+                  { props?.note?.split('BREAK')[0] }
+                </div>
+                <div className="font-semibold">
+                  { props?.note?.split('BREAK')[1] }
+                </div>
               </FormDescription>
               <FormMessage />
             </FormItem>

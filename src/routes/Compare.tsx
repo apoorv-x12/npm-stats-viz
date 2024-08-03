@@ -21,7 +21,7 @@ const Compare = () => {
         <div className="mx-16 my-8" >
            <PackageInfo setName={setPackageName} 
            effect={ <EvervaultCard text="Compare Downloads of Packages:" />}
-           note={'Type names of all packages separated by , without spaces.'}
+           note={'Type names of the 2 packages separated by , without spaces.BREAKNote: currently at most 2 packages can be compared.'}
            />
 
         </div>
