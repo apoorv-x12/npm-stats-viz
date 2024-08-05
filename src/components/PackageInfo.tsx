@@ -57,7 +57,7 @@ const PackageInfo = (props:Props) => {
               <FormControl className="flex items-center justify-center">
                 <Input className="text-center" placeholder="type package name" {...field} />
               </FormControl>
-              <FormDescription>
+              <FormDescription className="text-black dark:text-yellow-50">
                 <div>
                   { props?.note?.split('BREAK')[0] }
                 </div>
