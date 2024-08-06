@@ -16,7 +16,7 @@ const BarChartComponent = (props: PropType) => {
     <div>
             <BarChart  
              data={props?.data}
-             width={320}
+             width={300}
              height={250}
             >
                 <CartesianGrid strokeDasharray="3 3" />
