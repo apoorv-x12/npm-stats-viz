@@ -16,7 +16,7 @@ function App() {
       <main>
         <Outlet />
       </main>
-      <div className="mt-12 dark:bg-dark-bgb bg-blue-100">
+      <div className="mt-12 dark:bg-dark-bgb bg-blue-200">
         <Separator/>
         <Footer/>
         <Separator/>

@@ -38,7 +38,7 @@ export default  {
         'pal-23':'#3CBBB1',
         'pal-24':'#C4CBCA',
         'pal-25':"#BBE1FA",
-        'header-dark':'#071952',
+        'header-dark':'#102C57',
         'card-dark-blue':'#102C57',
         'card-light-blue':'#83B4FF',
         border: "hsl(var(--border))",
