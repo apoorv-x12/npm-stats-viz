@@ -24,8 +24,8 @@ const BarChartComponent = (props: PropType) => {
                 <YAxis type='number' domain={[0, 'dataMax']} tick={{stroke: 'yellow'}} />
                 <Tooltip labelStyle={{ color: 'red' }} cursor={{ stroke: 'yellow', strokeWidth: 2 }} />
                 <Legend />
-                <Bar dataKey="package_B" name={props?.package_A}  fill="lightgreen" />
-                <Bar dataKey="package_A" name={props?.package_B} fill="orange" />
+                <Bar dataKey="package_B" name={props?.package_B}  fill="lightgreen" />
+                <Bar dataKey="package_A" name={props?.package_A} fill="orange" />
             </BarChart>
     </div>
   )

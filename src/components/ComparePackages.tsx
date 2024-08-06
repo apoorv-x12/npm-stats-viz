@@ -60,13 +60,16 @@ const ComparePackages = (props: PropType) => {
             }
 
             {
-            compareDayQuery?.isError && <p className='text-red-500 text-center ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
+            compareDayQuery?.isError && <p className='text-red-500 text-center sm:ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
             }
 
             <div className="flex flex-col gap-6 items-center">
-                <h2 className="ml-10">
+                {
+                compareDayQuery?.data 
+                && <h2 className="ml-10">
                     Last Day Downloads Comparison
-                </h2>
+                   </h2>
+                } 
                 {
                 compareDayQuery?.data && <BarChart data={dataCreator('last-day')} package_A={packages?.[0]} package_B={packages?.[1]} />
                 }
@@ -79,13 +82,16 @@ const ComparePackages = (props: PropType) => {
             }
 
             {
-            compareMonthQuery?.isError &&  <p className='text-red-500 text-center ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
+            compareMonthQuery?.isError &&  <p className='text-red-500 text-center sm:ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
             }
 
             <div className="flex flex-col gap-6 items-center">
-                <h2 className="ml-10">
+                {
+                compareMonthQuery?.data 
+                && <h2 className="ml-10">
                     Last Months Downloads Comparison
-                </h2>
+                   </h2>
+                }
                 {  
                 compareMonthQuery?.data && <BarChart data={dataCreator('last-month')} package_A={packages?.[0]} package_B={packages?.[1]} />
                 }
@@ -98,13 +104,16 @@ const ComparePackages = (props: PropType) => {
             }
 
             {
-            compareYearQuery?.isError && <p className='text-red-500 text-center ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
+            compareYearQuery?.isError && <p className='text-red-500 text-center sm:ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
             }
             
             <div className="flex flex-col gap-6 items-center">
-                <h2 className="ml-10">
+                {
+                compareYearQuery?.data 
+                && <h2 className="ml-10">
                     Last Year Downloads Comparison
-                </h2>
+                   </h2>
+                }
                 {
                 compareYearQuery?.data && <BarChart data={dataCreator('last-year')} package_A={packages?.[0]} package_B={packages?.[1]} />
                 }
