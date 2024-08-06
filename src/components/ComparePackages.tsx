@@ -60,7 +60,7 @@ const ComparePackages = (props: PropType) => {
             }
 
             {
-            compareDayQuery?.isError && <p className='text-red-500 text-center sm:ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
+            compareDayQuery?.isError && <p className='text-red-500 text-center sm:ml-8 font-medium'>Error fetching data,<br></br> Scoped Packages not supported</p>
             }
 
             <div className="flex flex-col gap-6 items-center">
@@ -82,7 +82,7 @@ const ComparePackages = (props: PropType) => {
             }
 
             {
-            compareMonthQuery?.isError &&  <p className='text-red-500 text-center sm:ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
+            compareMonthQuery?.isError &&  <p className='text-red-500 text-center sm:ml-8 font-medium'>Error fetching data,<br></br> Scoped Packages not supported</p>
             }
 
             <div className="flex flex-col gap-6 items-center">
@@ -104,7 +104,7 @@ const ComparePackages = (props: PropType) => {
             }
 
             {
-            compareYearQuery?.isError && <p className='text-red-500 text-center sm:ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
+            compareYearQuery?.isError && <p className='text-red-500 text-center sm:ml-8 font-medium'>Error fetching data,<br></br> Scoped Packages not supported</p>
             }
             
             <div className="flex flex-col gap-6 items-center">
