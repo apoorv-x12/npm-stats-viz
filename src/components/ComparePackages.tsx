@@ -28,12 +28,12 @@ const ComparePackages = (props: PropType) => {
     const packages= props?.packagesNameString.split(",")
     const dataCreator = (name:string): {name:string,package_A:number,package_B:number}[] => {
        
-       
        const ob= {
         name:name,
         package_A:0,
         package_B:0,
        }
+
        if(name==='last-day'){
         ob.package_A=compareDayQuery?.data?.[packages?.[0]]?.downloads || 0
         ob.package_B=compareDayQuery?.data?.[packages?.[1]]?.downloads || 0
@@ -52,25 +52,23 @@ const ComparePackages = (props: PropType) => {
 
   return (
 
-    <div className="flex flex-col gap-8 p-6 justify-center items-center dark:text-yellow-100 text-blue-950 ">
-        <div className="flex flex-wrap gap-14 p-6 justify-center items-center dark:bg-dark-bgb bg-blue-100 dark:text-yellow-100 text-blue-900 rounded-md">
+    <div className="flex flex-col gap-8 p-6 justify-center items-center">
+        <div className="flex flex-wrap gap-14 p-6 justify-center items-center bg-gradient-to-br from-blue-900 via-violet-900 to-indigo-900 text-white rounded-md">
             <div>
             {         
             compareDayQuery?.isLoading && <div className='flex justify-center items-center'><Loader /></div>
             }
 
             {
-            compareDayQuery?.isError && <p className='text-red-500 text-center'>Error fetching data, Scoped Packages not supported</p>
+            compareDayQuery?.isError && <p className='text-red-500 text-center ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
             }
 
-            <div className="flex flex-col gap-8">
-                <h1 className='text-2xl font-bold flex gap-4 flex-col justify-center items-center'>
-                <div>package_A : {packages?.[0]}</div>
-                <div>package_B : {packages?.[1]}</div>
-                </h1>
-        
+            <div className="flex flex-col gap-6 items-center">
+                <h2 className="ml-10">
+                    Last Day Downloads Comparison
+                </h2>
                 {
-                compareDayQuery?.data && <BarChart data={dataCreator('last-day')} />
+                compareDayQuery?.data && <BarChart data={dataCreator('last-day')} package_A={packages?.[0]} package_B={packages?.[1]} />
                 }
             </div>
             </div>
@@ -81,16 +79,15 @@ const ComparePackages = (props: PropType) => {
             }
 
             {
-            compareMonthQuery?.isError && <p className='text-red-500 text-center'>Error fetching data, Scoped Packages not supported</p>
+            compareMonthQuery?.isError &&  <p className='text-red-500 text-center ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
             }
 
-            <div className="flex flex-col gap-8">
-                <h1 className='text-2xl font-bold flex gap-4 flex-col justify-center items-center'>
-                <div>package_A : {packages?.[0]}</div>
-                <div>package_B : {packages?.[1]}</div>
-                </h1>
+            <div className="flex flex-col gap-6 items-center">
+                <h2 className="ml-10">
+                    Last Months Downloads Comparison
+                </h2>
                 {  
-                compareMonthQuery?.data && <BarChart data={dataCreator('last-month')} />
+                compareMonthQuery?.data && <BarChart data={dataCreator('last-month')} package_A={packages?.[0]} package_B={packages?.[1]} />
                 }
             </div>
             </div>
@@ -101,16 +98,15 @@ const ComparePackages = (props: PropType) => {
             }
 
             {
-            compareYearQuery?.isError && <p className='text-red-500 text-center'>Error fetching data, Scoped Packages not supported</p>
+            compareYearQuery?.isError && <p className='text-red-500 text-center ml-8'>Error fetching data,<br></br> Scoped Packages not supported</p>
             }
             
-            <div className="flex flex-col gap-8">
-                <h1 className='text-2xl font-bold flex gap-4 flex-col justify-center items-center'>
-                <div>package_A : {packages?.[0]}</div>
-                <div>package_B : {packages?.[1]}</div>
-                </h1>
+            <div className="flex flex-col gap-6 items-center">
+                <h2 className="ml-10">
+                    Last Year Downloads Comparison
+                </h2>
                 {
-                compareYearQuery?.data && <BarChart data={dataCreator('last-year')} />
+                compareYearQuery?.data && <BarChart data={dataCreator('last-year')} package_A={packages?.[0]} package_B={packages?.[1]} />
                 }
             </div>
 
