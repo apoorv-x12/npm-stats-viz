@@ -6,7 +6,7 @@ import compare from '../assets/compare.svg'
 
 const HeaderContent = () => {
   return (
-    <div className="flex flex-wrap justify-evenly gap-10 items-center bg-clip-text text-transparent dark:bg-gradient-to-r dark:from-orange-400 dark:to-orange-2 bg-gradient-to-r from-red-900 to-red-950 text-xl font-bold">
+    <div className="flex flex-wrap justify-evenly gap-10 items-center bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-red-500 text-xl font-bold">
             <div className='flex items-center  gap-2'>
                 <img className='animate-spin' width={40} height={40} src={atom} alt="atom" /> 
                 <Link to={'/'}  className='hover:bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent'>
