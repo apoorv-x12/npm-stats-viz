@@ -53,15 +53,15 @@ const ComparePackages = (props: PropType) => {
   return (
 
     <div className="flex flex-col gap-8 p-6 justify-center items-center dark:text-yellow-100 text-blue-950 ">
-        <div className="flex flex-wrap gap-16 p-6 justify-center items-center dark:bg-dark-bgb bg-blue-100 dark:text-yellow-100 text-blue-900 rounded-md">
-            {
+        <div className="flex flex-wrap gap-14 p-6 justify-center items-center dark:bg-dark-bgb bg-blue-100 dark:text-yellow-100 text-blue-900 rounded-md">
+            <div>
+            {         
             compareDayQuery?.isLoading && <div className='flex justify-center items-center'><Loader /></div>
             }
 
             {
-            compareDayQuery?.isError && <p className='text-red-500 text-center'>Error fetching data</p>
+            compareDayQuery?.isError && <p className='text-red-500 text-center'>Error fetching data, Scoped Packages not supported</p>
             }
-
 
             <div className="flex flex-col gap-8">
                 <h1 className='text-2xl font-bold flex gap-4 flex-col justify-center items-center'>
@@ -73,13 +73,15 @@ const ComparePackages = (props: PropType) => {
                 compareDayQuery?.data && <BarChart data={dataCreator('last-day')} />
                 }
             </div>
-
+            </div>
+            
+            <div>
             {
             compareMonthQuery?.isLoading && <div className='flex justify-center items-center'><Loader /></div>
             }
 
             {
-            compareMonthQuery?.isError && <p className='text-red-500 text-center'>Error fetching data</p>
+            compareMonthQuery?.isError && <p className='text-red-500 text-center'>Error fetching data, Scoped Packages not supported</p>
             }
 
             <div className="flex flex-col gap-8">
@@ -91,15 +93,17 @@ const ComparePackages = (props: PropType) => {
                 compareMonthQuery?.data && <BarChart data={dataCreator('last-month')} />
                 }
             </div>
+            </div>
 
+            <div>
             {
             compareYearQuery?.isLoading && <div className='flex justify-center items-center'><Loader /></div>
             }
 
             {
-            compareYearQuery?.isError && <p className='text-red-500 text-center'>Error fetching data</p>
+            compareYearQuery?.isError && <p className='text-red-500 text-center'>Error fetching data, Scoped Packages not supported</p>
             }
-
+            
             <div className="flex flex-col gap-8">
                 <h1 className='text-2xl font-bold flex gap-4 flex-col justify-center items-center'>
                 <div>package_A : {packages?.[0]}</div>
@@ -108,6 +112,8 @@ const ComparePackages = (props: PropType) => {
                 {
                 compareYearQuery?.data && <BarChart data={dataCreator('last-year')} />
                 }
+            </div>
+
             </div>
 
         </div>
