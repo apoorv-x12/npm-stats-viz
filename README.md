@@ -46,7 +46,6 @@ You can use these endpoints to gather download statistics and metadata for npm p
   "downloads": [
     {"day": "2023-01-01", "downloads": 789},
     {"day": "2023-01-02", "downloads": 1011},
-    // more daily stats
   ],
   "start": "2023-01-01",
   "end": "2024-06-23",
