@@ -1,4 +1,4 @@
-## Deployed using gh-pages at this link
+# Deployed using gh-pages at this link
 [https://apoorv-x12.github.io/npm-stats-viz/](https://apoorv-x12.github.io/npm-stats-viz/)
 
 # Link to npm registry and other endpoints such as batch retrieval of multiple npm packages:
@@ -70,10 +70,10 @@ You can use these endpoints to gather download statistics and metadata for npm p
 
 ```
 
-## Docker + nginx containerization 
-[link](https://behdadk.medium.com/how-to-dockerize-a-react-application-in-5-minutes-c6093636628f)
+## Docker + nginx containerization article
+[Docker + nginx containerization](https://behdadk.medium.com/how-to-dockerize-a-react-application-in-5-minutes-c6093636628f)
 
-# React + TypeScript + Vite
+## React + TypeScript + Vite 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
