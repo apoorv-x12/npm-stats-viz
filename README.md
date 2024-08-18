@@ -1,13 +1,13 @@
-# Deployed using gh-pages at this link
+## Deployed using gh-pages at this link
 [https://apoorv-x12.github.io/npm-stats-viz/](https://apoorv-x12.github.io/npm-stats-viz/)
 
-# Automate deployment to gh-pages using CI/CD with github actions
+## Automate deployment to gh-pages using CI/CD with github actions
 [https://vitejs.dev/guide/static-deploy.html](https://vitejs.dev/guide/static-deploy.html)
 
-# Run Github Actions locally before push to save build time on Github actions
+## Run Github Actions locally before push to save build time on Github actions
 [https://github.com/nektos/act](https://github.com/nektos/act)
 
-# Link to npm registry and other endpoints such as batch retrieval of multiple npm packages:
+## Link to npm registry and other endpoints such as batch retrieval of multiple npm packages:
 [https://github.com/npm/registry/tree/main/docs](https://github.com/npm/registry/tree/main/docs)
 
 # Api endpoints used in the project:
