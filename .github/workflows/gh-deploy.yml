@@ -7,8 +7,6 @@ on:
   pull_request:
     branches:
       - master
-env:
-    GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB_ACTION_DEPLOY}}  
 
 jobs:
   build:
@@ -30,6 +28,7 @@ jobs:
       run: npm run lint
       continue-on-error: false  # Fail the workflow if linting errors occur
 
+
     # - name: Run tests
     #   run: npm test
     #   continue-on-error: false  # Fail the workflow if tests fail
@@ -42,13 +41,10 @@ jobs:
         git config --global user.email "fifa.ajay219@gmail.com"
         git config --global user.name "apoorv-x12"
         
-
     - name: Deploy
-      run: |
-        npm run deploy
-         # Add deployment commands here
-        GITHUB_TOKEN: $GITHUB_TOKEN
-         # Required for deployment to GitHub Pages or similar services
+      run: npm run deploy
+      env:
+        SECRET_GITHUB_ACTION_DEPLOY: ${{ secrets.SECRET_GITHUB_ACTION_DEPLOY }}
 
   # format:
   #   runs-on: ubuntu-latest
