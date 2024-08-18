@@ -27,7 +27,7 @@ jobs:
               run: npm run build # predeploy is same as build
 
             - name: Deploy
-              uses: peaceiris/actions-gh-pages@v3
+              uses: npm run deploy
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./dist
