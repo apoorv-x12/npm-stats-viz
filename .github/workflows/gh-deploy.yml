@@ -44,7 +44,7 @@ jobs:
     - name: Deploy
       run: npm run deploy
       env:
-        SECRET_GITHUB_ACTION_DEPLOY: ${{ secrets.SECRET_GITHUB_ACTION_DEPLOY }}
+        GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB_ACTION_DEPLOY }}
 
   # format:
   #   runs-on: ubuntu-latest
