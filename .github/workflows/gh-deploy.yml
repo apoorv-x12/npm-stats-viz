@@ -27,8 +27,8 @@ jobs:
               run: npm run build # predeploy is same as build
 
             - name: Deploy
-              uses: npm run deploy
-              with:
+              run: npm run deploy
+              env:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./dist
                   publish_branch: gh-pages
