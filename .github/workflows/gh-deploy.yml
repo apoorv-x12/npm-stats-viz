@@ -35,6 +35,11 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Set up Git for deployment
+      run: |
+        git config --global user.name "apoorv-x12"
+        git config --global user.email "fifa.ajay219@gmail.com"
+
     - name: Deploy
       run: |
         npm run deploy
