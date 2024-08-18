@@ -2,7 +2,7 @@
 [https://apoorv-x12.github.io/npm-stats-viz/](https://apoorv-x12.github.io/npm-stats-viz/)
 
 # Automate deployment to gh-pages using CI/CD with github actions
-[https://codeparrot.ai/blogs/automated-react-deployment-with-github-actions](https://codeparrot.ai/blogs/automated-react-deployment-with-github-actions)
+[https://vitejs.dev/guide/static-deploy.html](https://vitejs.dev/guide/static-deploy.html)
 
 # Link to npm registry and other endpoints such as batch retrieval of multiple npm packages:
 [https://github.com/npm/registry/tree/main/docs](https://github.com/npm/registry/tree/main/docs)
