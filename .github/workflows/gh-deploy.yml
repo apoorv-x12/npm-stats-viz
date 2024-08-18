@@ -42,9 +42,11 @@ jobs:
         git config --global user.name "apoorv-x12"
         
     - name: Deploy
-      run: npm run deploy
+      run: |
+        npm run deploy
       env:
-        GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB_ACTION_DEPLOY }}
+        GITHUB_TOKEN: ${{ secrets.GH }}  # Use the secret here
+
 
   # format:
   #   runs-on: ubuntu-latest
