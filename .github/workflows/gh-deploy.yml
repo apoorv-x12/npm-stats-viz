@@ -1,58 +1,36 @@
-name: deploy to gh-pages pipeline
+name: "Deploy to GitHub Pages"
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+    push:
+        branches:
+            - master
+    pull_request:
+        branches:
+           - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    deploy:
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+        steps:
+            - uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '21.6.1'  # Specify the Node.js version
+            - name: Setup Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: "21.6.1"
 
-    - name: Install dependencies
-      run: npm install
+            - name: Install dependencies
+              run: npm install
 
-    - name: Run linting
-      run: npm run lint
-      continue-on-error: false  # Fail the workflow if linting errors occur
+            - name: Build
+              run: npm run build
 
-
-    # - name: Run tests
-    #   run: npm test
-    #   continue-on-error: false  # Fail the workflow if tests fail
-
-    - name: Build
-      run: npm run build
-
-    - name: Set up Git for deployment
-      run: |
-        git config --global user.email "fifa.ajay219@gmail.com"
-        git config --global user.name "apoorv-x12"
-        
-    - name: Deploy
-      run: |
-        npm run deploy
-      env:
-         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} # Use the secret here
-
-
-  # format:
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #   - name: Checkout code
-  #     uses: actions/checkout@v3
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./dist
+                  publish_branch: gh-pages
 
   
