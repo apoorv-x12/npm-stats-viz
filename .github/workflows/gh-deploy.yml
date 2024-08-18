@@ -37,7 +37,7 @@ jobs:
 
     - name: Set up Git for deployment
       run: |
-        git config --global user.name "apoorv-x12"
+        git config user.name "GitHub Actions"
         git config --global user.email "fifa.ajay219@gmail.com"
 
     - name: Deploy
