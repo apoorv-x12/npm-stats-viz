@@ -4,6 +4,9 @@
 # Automate deployment to gh-pages using CI/CD with github actions
 [https://vitejs.dev/guide/static-deploy.html](https://vitejs.dev/guide/static-deploy.html)
 
+# Run Github Actions locally before push to save build time on Github actions
+[https://github.com/nektos/act](https://github.com/nektos/act)
+
 # Link to npm registry and other endpoints such as batch retrieval of multiple npm packages:
 [https://github.com/npm/registry/tree/main/docs](https://github.com/npm/registry/tree/main/docs)
 
