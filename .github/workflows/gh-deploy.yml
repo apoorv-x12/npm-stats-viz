@@ -45,8 +45,8 @@ jobs:
       run: |
         npm run deploy
         # Add deployment commands here
-      # env:
-      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
         # Required for deployment to GitHub Pages or similar services
 
   # format:
