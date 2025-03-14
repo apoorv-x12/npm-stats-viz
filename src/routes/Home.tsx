@@ -16,9 +16,12 @@ import {
 } from "../components/ui/accordion"
 
 type objectType = {
+  dependents:number,
   package: {
      name: string,
+     maintainers: object[],
      description: string,
+     license: string,
      links:
        { 
         npm: string,
@@ -26,14 +29,7 @@ type objectType = {
        }
     },
   searchScore: number,
-  score: {
-    detail: {
-      maintenance: number,
-      quality: number,
-      popularity: number,
-    },
-    final: number
-  },
+  updated:string
 }
 
 const Home = () => {
@@ -56,11 +52,18 @@ const Home = () => {
     const numToStars = (num: number) => {
       let stars = '';
       const star='⭐';
-      const iterations = Math.round(num*10);
-      if(iterations===0)
+      const iterations = 10
+      let starCount= Math.round(num-100)
+      if(starCount===0)
         return '⓿';
-      for (let i = 0; i < iterations; i++)
-        stars += star;
+      for (let i = 0; i < iterations; i++){
+           stars += star;
+           starCount-=100
+           if(starCount<0){
+            break
+           }
+      }
+        
       return stars;
     };
 
@@ -189,10 +192,10 @@ const Home = () => {
             {
               npmQuery?.data?.total > 0 ?
               npmQuery?.data?.objects?.map((item: objectType,index:number)=>{
-
                 return (
-                  <div className="flex gap-2 flex-col p-4 items-start justify-start border-2 rounded-lg antialiased bg-pal-21 text-yellow-200" key={index}>
-                   
+                  <div className="flex flex-col border-2 p-6 justify-between rounded-lg antialiased bg-pal-21 text-yellow-200" key={index}>
+                    <div className="flex gap-2 flex-col items-start justify-start">
+
                       <div className='my-4 font-bold text-ellipsis break-all'>
                         {item?.package?.name}
                       </div>
@@ -201,27 +204,33 @@ const Home = () => {
                             {item?.package?.description}
                       </div>
                       <div>
-                         Quality Score: {numToStars(item?.score?.detail?.quality)}
+                         Maintainers: {item?.package?.maintainers?.length}
                       </div>
                       <div>
-                         Popularity Score: {numToStars(item?.score?.detail?.popularity)}
+                         Dependents: {item?.dependents}
                       </div>
                       <div>
-                         Maintenance Score: {numToStars(item?.score?.detail?.maintenance)}
+                         Last updated: {((dateString) => new Date(dateString).toLocaleString())(item?.updated)}
                       </div>
                       <div>
-                         Overall Score: {numToStars(item?.score?.final)}
+                        License: {item?.package?.license}
+                      </div>
+                      <div>
+                         Search Score: {numToStars(item?.searchScore)}
                       </div>
 
-                      <div className='flex gap-20 justify-center items-center mt-8 border-t-2 border-yellow-500'>
-                            <a target='_blank' href={item?.package?.links?.npm} className='font-medium underline'>
-                                npm link
-                            </a>
-                            <a target='_blank' href={item?.package?.links?.homepage} className='font-medium underline'>
-                                homepage
-                            </a>
-                      </div>
+                      
+                    </div>
+                    <div className='flex gap-20 justify-center items-center mt-8 border-t-2 border-yellow-500'>
+                              <a target='_blank' href={item?.package?.links?.npm} className='font-medium underline'>
+                                  npm link
+                              </a>
+                              <a target='_blank' href={item?.package?.links?.homepage} className='font-medium underline'>
+                                  homepage
+                              </a>
+                    </div>
                   </div>
+                 
                 )
               })
               :
