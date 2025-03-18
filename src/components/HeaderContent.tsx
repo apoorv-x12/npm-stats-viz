@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import histogram from '../assets/histogram-2.svg'
-import genai from '../assets/genai.svg'
+// import genai from '../assets/genai.svg'
 import atom from '../assets/atom.svg'
 import compare from '../assets/compare.svg'
 
@@ -25,12 +25,12 @@ const HeaderContent = () => {
                   Compare
                 </Link>
             </div>
-            <div className='flex items-center  gap-2'>
+            {/* <div className='flex items-center  gap-2'>
                 <img className='animate-ping' width={40} height={40} src={genai} alt="genai" /> 
                 <Link to={'/genAi'}  className='hover:bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent'>
                   GenAi
                 </Link>
-            </div>
+            </div> */}
         </div>
   )
 }
