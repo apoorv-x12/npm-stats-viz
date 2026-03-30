@@ -8,12 +8,12 @@ import { Toaster } from "./components/ui/toaster";
 function App() {
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <div className="mb-2 sticky top-0 z-[10000] dark:bg-header-dark bg-pal-25">
         <Header/>
         <Separator/>
       </div>
-      <main>
+      <main className="flex-1">
         <Outlet />
       </main>
       <div className="mt-12 dark:bg-dark-bgb bg-blue-200">
@@ -22,7 +22,7 @@ function App() {
         <Separator/>
       </div>
       <Toaster />
-    </>
+    </div>
   )
 }
 
