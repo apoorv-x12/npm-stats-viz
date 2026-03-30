@@ -35,6 +35,9 @@ type objectType = {
 const Home = () => {
     const [packageName, setPackageName] = useState('');
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [supportsHoverCard, setSupportsHoverCard] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
 
     const {toast} = useToast();
     
@@ -46,8 +49,14 @@ const Home = () => {
     });
 
     const packageSetter = () => {
+      setCurrentPage(1);
       npmQuery.refetch();
-    } 
+    }
+
+    const allObjects: objectType[] = npmQuery?.data?.objects || [];
+    const totalPages = Math.max(1, Math.ceil(allObjects.length / itemsPerPage));
+    const currentStartIndex = (currentPage - 1) * itemsPerPage;
+    const paginatedObjects = allObjects.slice(currentStartIndex, currentStartIndex + itemsPerPage);
 
     const numToStars = (num: number) => {
       let stars = '';
@@ -114,6 +123,29 @@ const Home = () => {
   [npmQuery?.isLoading,npmQuery?.isError,npmQuery?.isSuccess,toast]
 )
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const updateCapability = () => setSupportsHoverCard(mediaQuery.matches);
+
+    updateCapability();
+    mediaQuery.addEventListener('change', updateCapability);
+
+    return () => mediaQuery.removeEventListener('change', updateCapability);
+  }, [])
+
+  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    packageSetter();
+  }
+
+  const goToPrevPage = () => {
+    setCurrentPage((prev) => Math.max(1, prev - 1));
+  }
+
+  const goToNextPage = () => {
+    setCurrentPage((prev) => Math.min(totalPages, prev + 1));
+  }
+
   return (
     <div>
       <div className='flex flex-col justify-center items-center gap-4 m-8'>
@@ -132,20 +164,23 @@ const Home = () => {
                   <p className="text-green-500 font-bold my-2 text-sm text-center relative z-10 break-words">
                     Search stats of any npm package
                   </p>
-                  <input
-                    type="text"
-                    value={packageName}
-                    onChange={(e) => setPackageName(e.target.value)}
-                    placeholder="Enter package name"
-                    className="border text-red-500 rounded-lg border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4 p-2 text-center placeholder:text-red-500"
-                  />
-                  <div className=' flex items-center justify-center'>
-                    <Button  onClick={()=>packageSetter()} className="mt-4 hover:bg-yellow-500 bg-gradient-to-r from-blue-400 to-pink-600 text-whitw rounded-lg shadow-2xl">
-                      Search
-                    </Button>
-                  </div>
+                  <form onSubmit={handleSearchSubmit}>
+                    <input
+                      type="text"
+                      value={packageName}
+                      onChange={(e) => setPackageName(e.target.value)}
+                      placeholder="Enter package name"
+                      className="border text-red-500 rounded-lg border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4 p-2 text-center placeholder:text-red-500"
+                    />
+                    <div className=' flex items-center justify-center'>
+                      <Button type='submit' className="mt-4 hover:bg-yellow-500 bg-gradient-to-r from-blue-400 to-pink-600 text-whitw rounded-lg shadow-2xl">
+                        Search
+                      </Button>
+                    </div>
+                  </form>
           </div>
-          <div className=" flex items-center justify-center ">
+          {supportsHoverCard ? (
+          <div className="flex items-center justify-center">
                   <PinContainer
                     title="Link to my other projects"
                     href="https://github.com/apoorv-x12"
@@ -164,6 +199,7 @@ const Home = () => {
                     </div>
                   </PinContainer>
           </div>
+                  ) : null}
          
       </div>
 
@@ -191,7 +227,7 @@ const Home = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4'>
             {
               npmQuery?.data?.total > 0 ?
-              npmQuery?.data?.objects?.map((item: objectType,index:number)=>{
+              paginatedObjects?.map((item: objectType,index:number)=>{
                 return (
                   <div className="flex flex-col border-2 p-6 justify-between rounded-lg antialiased bg-pal-21 text-yellow-200" key={index}>
                     <div className="flex gap-2 flex-col items-start justify-start">
@@ -237,6 +273,19 @@ const Home = () => {
               null
             }
         </div>
+        {allObjects.length > itemsPerPage ? (
+          <div className='mb-4 flex flex-wrap items-center justify-center gap-3'>
+            <Button onClick={goToPrevPage} disabled={currentPage === 1} variant="outline">
+              Previous
+            </Button>
+            <span className='text-sm font-medium text-gray-700 dark:text-gray-200'>
+              Page {currentPage} of {totalPages}
+            </span>
+            <Button onClick={goToNextPage} disabled={currentPage === totalPages} variant="outline">
+              Next
+            </Button>
+          </div>
+        ) : null}
       </div>
 
       <div className='mx-40 my-6 flex flex-col items-center '>
