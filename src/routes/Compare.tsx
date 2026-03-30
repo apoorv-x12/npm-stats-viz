@@ -5,6 +5,7 @@ import ComparePackages from '../components/ComparePackages';
 import { Button } from "../components/ui/button";
 import { useToast } from "../components/ui/use-toast";
 import stats from "../assets/stats.svg";
+import { EvervaultCard } from "../components/ui/ever-vault-card";
 
 const Compare = () => {
 
@@ -53,9 +54,9 @@ const Compare = () => {
     <div >    
         <div className="mx-4 my-8 sm:mx-16" >
           <form onSubmit={handleCompareSubmit} className="flex flex-col items-center gap-5 rounded-md border-2 bg-blue-200 p-4 text-center sm:bg-gradient-to-r sm:from-blue-100 sm:via-card-light-blue sm:to-blue-100 dark:bg-gradient-to-r dark:from-dark-bgb dark:via-card-dark-blue dark:to-dark-bgb">
-            <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100 sm:text-2xl">
-              Compare Downloads of Packages
-            </h1>
+            <div className="border bg-white dark:bg-black border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm mx-auto p-4 relative rounded-lg h-[10rem]">
+              <EvervaultCard text="Compare Downloads of Packages:" />
+            </div>
             <p className="text-sm text-gray-700 dark:text-gray-200">
               Enter two package names. We handle the compare format for you.
             </p>
