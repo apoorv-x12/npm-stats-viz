@@ -277,6 +277,7 @@ const Home = () => {
           <div className='mb-4 flex flex-wrap items-center justify-center gap-3'>
             <Button onClick={goToPrevPage} disabled={currentPage === 1} variant="outline">
               Previous
+              
             </Button>
             <span className='text-sm font-medium text-gray-700 dark:text-gray-200'>
               Page {currentPage} of {totalPages}
